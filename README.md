@@ -1,10 +1,10 @@
-# java-feriados
+# Java-feriados
 Classes java para tratamento dos feriados nacionais do Brasil
 
-# instalação
+# Instalação
 Importe as classes Feriados e GregorianCalendarWrapper no seu projeto java
 
-# exemplo de uso
+# Exemplo de uso
 
 		//Inicia a classe
 		Feriados feriados = new Feriados();
@@ -28,4 +28,16 @@ Importe as classes Feriados e GregorianCalendarWrapper no seu projeto java
 		System.out.println(feriados.isFeriado(calendarTestar.getTime())); // TRUE (Ano novo)
 
 
+# Lista de feriados considerados
+- Ano novo 
+- Carnaval 
+- Sexta Feira Santa
+- Páscoa
+- Tiradentes
+- Corpus Christ
+- Independência do Brasil
+- 12 de outubro (Dias das crianças/Nossa Senhora Aparecida)
+- Finados
+- Proclamação da República
+- Natal
 
