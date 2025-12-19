@@ -39,5 +39,5 @@ Importe as classes Feriados e GregorianCalendarWrapper no seu projeto java
 - 12 de outubro (Dias das crianças/Nossa Senhora Aparecida)
 - Finados
 - Proclamação da República
+- Consciência Negra
 - Natal
-

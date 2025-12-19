@@ -23,6 +23,7 @@ public class Feriados {
 	public Calendar proclamacaoDaRepublica =  GregorianCalendarWrapper.getInstance();
 	public Calendar tiradentes = GregorianCalendarWrapper.getInstance();
 	public Calendar primeiroDiaDoAno = GregorianCalendarWrapper.getInstance();
+    public Calendar conscienciaNegra = GregorianCalendarWrapper.getInstance();
 	
 	private List<Calendar> lstCalendar;
 	private int ano;
@@ -74,11 +75,11 @@ public class Feriados {
 	public Calendar getPrimeiroDiaDoAno() {
 		return primeiroDiaDoAno;
 	}
-	
-	public void setPrimeiroDiaDoAno(Calendar primeiroDiaDoAno) {
-		this.primeiroDiaDoAno = primeiroDiaDoAno;
-	}
-	
+
+    public Calendar getConscienciaNegra() {
+        return conscienciaNegra;
+    }
+
 	public int getAno() {
 		return ano;
 	}
@@ -138,7 +139,7 @@ public class Feriados {
 	 */
 	private void calcularDatasReligiosasDinamicas() {
 		
-		//Calculo da Pascoa
+		// Calculo da Pascoa
 		int a = ano % 19;
 		int b = ano / 100;
 		int c = ano % 100;
@@ -157,21 +158,21 @@ public class Feriados {
 		this.pascoa.set(Calendar.MONTH, mes-1);
 		this.pascoa.set(Calendar.DAY_OF_MONTH, dia);
 		
-		//Carnaval 47 dias antes da pascoa
+		// Carnaval 47 dias antes da pascoa
 		this.carnaval.setTimeInMillis(pascoa.getTimeInMillis());
 		this.carnaval.add(Calendar.DAY_OF_MONTH, -47);
 		
-		//CorpusChristi 60 dias apos a pascoa
+		// CorpusChristi 60 dias apos a pascoa
 		this.corpusChristi.setTimeInMillis(pascoa.getTimeInMillis());
 		this.corpusChristi.add(Calendar.DAY_OF_MONTH, 60);
 		
-		//Sexta Feira santa 2 dias antes da pascoa
+		// Sexta Feira santa 2 dias antes da pascoa
 		this.sextaFeiraSanta.setTimeInMillis(pascoa.getTimeInMillis());
 		this.sextaFeiraSanta.add(Calendar.DAY_OF_MONTH, -2);
 	}
 	
 	/**
-	 * Apenas seta os feriados que dias fixos
+	 * Apenas seta os feriados de dias fixos
 	 * todo ano ex: natal todo dia 25/12
 	 */
 	protected void calcularDatasFixas() {
@@ -215,12 +216,16 @@ public class Feriados {
 		this.primeiroDiaDoAno.set(Calendar.YEAR, ano);
 		this.primeiroDiaDoAno.set(Calendar.MONTH, Calendar.JANUARY);
 		this.primeiroDiaDoAno.set(Calendar.DAY_OF_MONTH, 01);
-		
+
+        // 20/11
+        this.conscienciaNegra.set(Calendar.YEAR, ano);
+        this.conscienciaNegra.set(Calendar.MONTH, Calendar.NOVEMBER);
+        this.conscienciaNegra.set(Calendar.DAY_OF_MONTH, 20);
 	}
 	
 	/**
-	 * Verifica se a data vindo de parametro é ou não 
-	 * feriado nacional dentro do ano passado por parametro
+	 * Verifica se a data  é ou não
+	 * feriado nacional
 	 * 
 	 * @param Date date a ser comparada
 	 * @return true se sim
@@ -259,12 +264,11 @@ public class Feriados {
 			//Carrega apenas os calendar no list
 			try {
 				this.lstCalendar.add((Calendar)field.get(this));
-			} catch (Exception e
-					) {
+			} catch (Exception e) {
 				continue;
 			}
 		}
 	
 	}
-	
+
 }
